@@ -18,23 +18,7 @@
         <input type="text" v-model="profile" v-else>
       </div>
       <Message />
-      <div class="comment">
-        <div class="comment-title">
-          <p>コメント</p>
-        </div>
-        <div class="message" v-for="(comment,index) in data" :key="index">
-          <div class="flex">
-            <p class="name">{{comment.name}}</p>
-          </div>
-          <div>
-            <p class="text">{{comment.content}}</p>
-          </div>
-        </div>
-        <input type="text" v-model="content">
-        <div @click="send">
-          <button>コメント</button>
-        </div>
-      </div>
+      
     </div>
   </div>
 </template>
@@ -42,17 +26,33 @@
 <script>
 import SideNavi from "../components/SideNavi";
 import Message from "../components/Message";
+import axios from "axios";
 export default {
-  props:["id"],
+  
   data(){
     return{
-      content:"",
-      data:[{
-        name:"太郎",
-        like:[],
-        share:"初めまして"
-      }]
+      active:true,
+      name:this.$store.state.user.name,
+      profile:this.$store.state.user.profile,
     };
+  },
+  methods: {
+    edit() {
+      if (!this.active) {
+        axios
+          .put("herokuのURL/api/user", {
+            email: this.$store.state.user.email,
+            profile: this.profile,
+          })
+          .then((response) => {
+            this.$store.dispatch("changeUserData", {
+              profile: this.profile,
+            });
+            console.log(response);
+          });
+      }
+      this.active = !this.active;
+    },
   },
   components: {
     SideNavi,
@@ -94,5 +94,16 @@ button {
   border-radius: 25px;
   display: block;
   margin: 0 0 0 auto;
+}
+.profile {
+  padding: 20px;
+  border-bottom: solid 1px white;
+  border-left: 1px solid white;
+}
+.profile-name {
+  font-size: 24px;
+}
+input{
+  color: black;
 }
 </style>

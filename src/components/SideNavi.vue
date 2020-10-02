@@ -2,21 +2,21 @@
 <div>
   <div class="left-padding">
         <img src="../assets/logo.png" alt="" class="logo">
-        <div class="flex icon-filld">
+        <div class="flex icon-field">
           <img src="../assets/home.png" alt="" class="icon">
           <p>ホーム</p>
         </div>
-        <div class="flex icon-filld">
+        <div class="flex icon-field">
           <img src="../assets/profile.png" alt="" class="icon">
           <p>プロフィール</p>
         </div>
-        <div class="flex icon-filld">
+        <div class="flex icon-field">
           <img src="../assets/logout.png" alt="" class="icon">
           <p>ログアウト</p>
         </div>
       </div>
-      <hr>
-      <ShareMessage>
+      
+      <ShareMessage />
   </div>
 </template>
 

@@ -1,13 +1,13 @@
 <template>
   <div class="flex">
     <div class="left">
-      <SideNavi>
+      <SideNavi />
     </div>
    <div class="right">
       <div class="title">
         <p>ホーム</p>
       </div>
-      <Message>
+      <Message />
    </div>
   </div>
 </template>
