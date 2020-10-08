@@ -33,15 +33,13 @@ export default {
   },
   methods:{
     fav(index){
-      let result = this.shares[index].like.some((value) => {
-        return value.user_id == this.$store.state.user.id;
-      });
+      let result = this.shares[index].like.some((value)=>{return value.user_id==this.$store.state.user.id;});
       if (result) {
         this.shares[index].like.forEach((element) => {
           if (element.user_id == this.$store.state.user.id) {
             axios({
               method: "delete",
-              url: "herokuのURL/api/like",
+              url: "https://infinite-reaches-38848.herokuapp.com/api/like",
               data: {
                 share_id: this.shares[index].item.id,
                 user_id: this.$store.state.user.id,
@@ -57,7 +55,7 @@ export default {
         });
       } else {
         axios
-          .post("herokuのURL/api/like", {
+          .post("https://infinite-reaches-38848.herokuapp.com/api/like", {
             share_id: this.shares[index].item.id,
             user_id: this.$store.state.user.id,
           })
@@ -73,7 +71,7 @@ export default {
     del(index) {
       axios
         .delete(
-          "herokuのURL/api/shares/" +
+          "https://infinite-reaches-38848.herokuapp.com/api/shares/" +
             this.shares[index].item.id
         )
         .then((response) => {
@@ -92,7 +90,7 @@ export default {
       for (let i = 0; i < shares.data.data.length; i++) {
         await axios
           .get(
-            "herokuのURL/api/shares/" +
+            "https://infinite-reaches-38848.herokuapp.com/api/shares/" +
               shares.data.data[i].id
           )
           .then((response) => {
@@ -123,6 +121,8 @@ export default {
     this.getShares();
   },
     };
+
+  
   </script>
 
 <style scoped>

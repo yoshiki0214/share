@@ -32,6 +32,7 @@
 <script>
 import SideNavi from "../components/SideNavi";
 import Message from "../components/Message";
+import axios from "axios";
 export default {
   props:["id"],
   data(){
