@@ -39,7 +39,7 @@ export default {
           if (element.user_id == this.$store.state.user.id) {
             axios({
               method: "delete",
-              url: "https://infinite-reaches-38848.herokuapp.com/api/like",
+              url: "https://warm-beyond-81057.herokuapp.com/api/like",
               data: {
                 share_id: this.shares[index].item.id,
                 user_id: this.$store.state.user.id,
@@ -55,7 +55,7 @@ export default {
         });
       } else {
         axios
-          .post("https://infinite-reaches-38848.herokuapp.com/api/like", {
+          .post("https://warm-beyond-81057.herokuapp.com/api/like", {
             share_id: this.shares[index].item.id,
             user_id: this.$store.state.user.id,
           })
@@ -71,7 +71,7 @@ export default {
     del(index) {
       axios
         .delete(
-          "https://infinite-reaches-38848.herokuapp.com/api/shares/" +
+          "https://warm-beyond-81057.herokuapp.com/api/shares/" +
             this.shares[index].item.id
         )
         .then((response) => {
@@ -85,12 +85,12 @@ export default {
     async getShares() {
       let data = [];
       let shares = await axios.get(
-        "herokuのURL/api/shares"
+        "https://warm-beyond-81057.herokuapp.com/api/shares"
       );
       for (let i = 0; i < shares.data.data.length; i++) {
         await axios
           .get(
-            "https://infinite-reaches-38848.herokuapp.com/api/shares/" +
+            "https://warm-beyond-81057.herokuapp.com/api/shares/" +
               shares.data.data[i].id
           )
           .then((response) => {

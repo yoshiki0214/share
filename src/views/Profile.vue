@@ -40,7 +40,7 @@ export default {
     edit() {
       if (!this.active) {
         axios
-          .put("https://infinite-reaches-38848.herokuapp.com/api/user", {
+          .put("https://warm-beyond-81057.herokuapp.com/api/user", {
             email: this.$store.state.user.email,
             profile: this.profile,
           })

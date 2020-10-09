@@ -29,14 +29,14 @@ export default new Vuex.Store({
   actions: {
     async login({ commit }, { email, password }) {
       let responseLogin = await axios.post(
-        "https://infinite-reaches-38848.herokuapp.com/api/login",
+        "https://warm-beyond-81057.herokuapp.com/api/login",
         {
           email: email,
           password: password,
         }
       );
       let responseUser = await axios.get(
-        "https://infinite-reaches-38848.herokuapp.com/api/user",
+        "https://warm-beyond-81057.herokuapp.com/api/user",
         {
           params: {
             email: email,
@@ -49,7 +49,7 @@ export default new Vuex.Store({
     },
     logout({ commit }) {
       axios
-        .post("https://infinite-reaches-38848.herokuapp.com/api/logout", {
+        .post("https://warm-beyond-81057.herokuapp.com/api/logout", {
           auth: this.state.auth,
         })
         .then((response) => {
