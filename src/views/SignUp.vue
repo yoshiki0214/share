@@ -35,7 +35,7 @@ export default {
       .post("https://warm-beyond-81057.herokuapp.com/api/register",{
         name:this.name,
         profile:this.profile,
-        email:this.emial,
+        email:this.email,
         password:this.password
       })
       .then(response => {
